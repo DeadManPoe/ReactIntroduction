@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <style>
+        .listItem {
+            font-weight: bold;
+        }
+    </style>
+    <div id='app'>
+        <input type='text' placeholder="Insert todo"/><button>Add</button>
+        <ul id='todos'> 
+        </ul>
+    </div>
+
+    <script type='text/javascript'>
+      
+        const input = document.querySelector('input')
+        const button = document.querySelector('button')
+        const todos = document.querySelector('#todos')
+        let todosDb = []
+        let currentInput = ''
+
+        //Sets the current todo text
+        input.addEventListener('keyup', (event)=>{
+            currentInput =  event.target.value
+        })
+
+        //When the user clicks the 'add' button
+        button.addEventListener('click', ()=>{
+
+            //Initialize delete button for the todo to be created
+            const thisButton = document.createElement('button')
+            thisButton.textContent = 'Delete'
+            deleteBehaviour(thisButton)
+
+            //Create todo as a li with a text inside
+            const li = document.createElement('li')
+            li.textContent = currentInput
+            li.appendChild(thisButton)
+            todos.appendChild(
+                li
+            )
+            //Reset input
+            input.value = ''
+            //Update todos db
+            todosDb.push(currentInput)
+        })
+
+
+        function deleteBehaviour(button){
+            //When the user clicks the delete button for a todo
+            button.addEventListener('click', (event)=>{
+                //Get the li that containts the button
+                const li = event.target.parentElement
+                //Get the text of the todo and use it to update the db
+                const text = li.childNodes[0].textContent
+                todosDb = todosDb.filter((el) => {return el !== text})
+                //Remove the li
+                todos.removeChild(li)
+            })
+        }
+        
+    </script>
+</body>
+</html>

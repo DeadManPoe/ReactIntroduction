@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <style>
+        .title {
+            font-weight: bold;
+        }
+        .director {
+            color: gray;
+        }
+    </style>
+    <div id='app'>
+
+    </div>
+
+    <script type='text/javascript'>
+        //Suppose these data is fetched from an API when the page loads
+        const data = [{id:1, title: 'The lord of the rings, the return of the king', director:'Peter Jackson'}, {id:2, title: 'Fight club', director:'David Fincher'}, {id: 3, title: 'Inception', director: 'Christopher Nolan'}]
+        //The div in which we will put our dynamic ui, we could also have used the body
+        const appDiv = document.querySelector('#app')
+
+        /*
+        Render the data as a list of items, make the title bold and big, the director be gray and small
+        */
+        const list = document.createElement('ul')
+        appDiv.appendChild(list)
+        data.forEach((item) => {
+            const listItem = document.createElement('li')
+            listItem.setAttribute('movieid', item.id)
+            //
+            const titleNode = document.createElement('h3')
+            titleNode.textContent = item.title
+            titleNode.classList.add('title')
+            const directorNode = document.createElement('p')
+            directorNode.textContent = item.director
+            directorNode.classList.add('director')
+            listItem.appendChild(titleNode)
+            listItem.appendChild(directorNode)
+            //
+            //A more clean approach
+            //listItem.innerHTML = `<li movieid=${item.id}><h3 className='title'>${item.title}</h3><p className='director'>${item.director}</p></li>`
+            list.append(listItem)
+        })
+        
+        
+    </script>
+</body>
+</html>
