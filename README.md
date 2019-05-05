@@ -13,5 +13,5 @@ Let's see how React is able to guarantee abstraction and reactivity, while vanil
 React elements abstract away ui generation and guarantee that what you is almost what you get. They do so by supporting an XML/HTML syntax within JS called JSX, and by offering a simple and complete API for everything you can imagine about possibily complex UI trees. What they don't do is to offer to the user strategies to make the UI react to data changes, that's what React components offer.
 
 ## Reactivity
-React components put together data with a declaritive and abstracted UI, by making React elements automatically and smartly change whenever some data changes. 
+React components put together data with a declaritive and abstracted UI, by making React elements automatically and smartly change whenever some piece of data changes. Such data can be of 2 types: internal to the component(*state*) or external to the component but supplied to it(*props*); whenever either the state of a component changes or its props, then a new React element is rendered to the DOM, an element that reflects correctly the changes in the data.
 
