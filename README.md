@@ -7,3 +7,11 @@ Reactivity is the idea of responding automatically to a change occurred to somet
 
 Let's see how React is able to guarantee abstraction and reactivity, while vanilla JS is not.
 
+* Live demo on the material under `simple-dynamic-ui` and `todo-ui`*
+
+## Abstraction
+React elements abstract away ui generation and guarantee that what you is almost what you get. They do so by supporting an XML/HTML syntax within JS called JSX, and by offering a simple and complete API for everything you can imagine about possibily complex UI trees. What they don't do is to offer to the user strategies to make the UI react to data changes, that's what React components offer.
+
+## Reactivity
+React components put together data with a declaritive and abstracted UI, by making React elements automatically and smartly change whenever some data changes. 
+
